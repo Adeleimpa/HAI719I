@@ -1,6 +1,7 @@
 // Local includes
 #include "Material.h"
 #include "Shader.h"
+#include "Texture.h"
 // GLM includes
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -16,11 +17,11 @@ Material::~Material() {
 
 void Material::init() {
 	// TODO : Change shader by your
-	m_program = load_shaders("shaders/unlit/vertex.glsl", "shaders/unlit/fragment.glsl");
+	m_program = load_shaders("../shaders/unlit/vertex.glsl", "../shaders/unlit/fragment.glsl");
 	check();
 	// TODO : set initial parameters
 	m_color = {1.0, 1.0, 1.0, 1.0};
-	m_texture = 0;
+    m_texture = loadTexture2DFromFilePath("../data/brique.png");
 }
 
 void Material::clear() {
